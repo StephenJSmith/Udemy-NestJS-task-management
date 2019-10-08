@@ -9,7 +9,10 @@ import { stat } from 'fs';
 
 @Injectable()
 export class TasksService {
-  constructor(@InjectRepository(TaskRepository) private taskRepository: TaskRepository) {}
+  constructor(
+    @InjectRepository(TaskRepository)
+    private taskRepository: TaskRepository,
+  ) {}
 
   async getTasks(filterDto: GetTasksFilterDto): Promise<Task[]> {
     return this.taskRepository.getTasks(filterDto);
